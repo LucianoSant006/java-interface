@@ -18,18 +18,20 @@ public class Program {
 
         DateTimeFormatter fmt = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm");
 
-        System.out.println("Entre com os dados do aluguel");
-        System.out.println("Modelo do carro: ");
+        System.out.print("Entre com os dados do aluguel");
+        System.out.println();
+        System.out.print("Modelo do carro: ");
         String ModelCar = sc.nextLine();
-        System.out.println("Retirada (dd/MM/yyyy hh:mm): ");
+        System.out.print("Retirada (dd/MM/yyyy hh:mm): ");
         LocalDateTime start = LocalDateTime.parse(sc.nextLine(),fmt);
-        System.out.println("Retorno (dd/MM/yyyy hh:mm): ");
+        System.out.print("Retorno (dd/MM/yyyy hh:mm): ");
         LocalDateTime finish = LocalDateTime.parse(sc.nextLine(),fmt);
         CarRental cr = new CarRental(finish,start,new Vehicle(ModelCar));
 
-        System.out.println("Enter com o preço por hora: ");
+        System.out.print("Enter com o preço por hora: ");
         double priceHour = sc.nextDouble();
-        System.out.println("Entre com o preço por dia: ");
+        sc.nextLine();
+        System.out.print("Entre com o preço por dia: ");
         double pricePerDay = sc.nextDouble();
 
         RentalService rentalService = new RentalService(pricePerDay,priceHour,new BrazilTaxService());

@@ -5,14 +5,14 @@ import model.entities.Invoice;
 
 import java.time.Duration;
 
-public class RentalService {
+public class RentalService  {
 
     private Double pricePerHour;
     private Double pricePerDay;
 
-    private BrazilTaxService taxService;
+    private TaxService taxService;
 
-    public RentalService(Double pricePerDay, Double pricePerHour, BrazilTaxService taxService) {
+    public RentalService(Double pricePerDay, Double pricePerHour, TaxService taxService) {
         this.pricePerDay = pricePerDay;
         this.pricePerHour = pricePerHour;
         this.taxService = taxService;
