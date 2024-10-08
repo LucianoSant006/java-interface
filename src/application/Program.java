@@ -1,47 +1,28 @@
 package application;
 
-import model.entities.CarRental;
-import model.entities.Vehicle;
-import model.services.BrazilTaxService;
-import model.services.RentalService;
+import model.entities.Contract;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import java.util.Date;
 import java.util.Locale;
 import java.util.Scanner;
 
 public class Program {
-
     public static void main(String[] Args){
         Locale.setDefault(Locale.US);
         Scanner sc = new Scanner(System.in);
+        DateTimeFormatter sdf = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+        System.out.println("Enter os dados do contrato:");
+        System.out.print("Number");
+        int number = sc.nextInt();
+        System.out.println("Data (dd/MM/yyyy): ");
+        LocalDate datee = LocalDate.parse(sc.next(), sdf);
+        System.out.println("Valor contrato: ");
+        double totalValue = sc.nextDouble();
 
-        DateTimeFormatter fmt = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm");
+        Contract obj = new Contract(number, datee, totalValue);
 
-        System.out.print("Entre com os dados do aluguel");
-        System.out.println();
-        System.out.print("Modelo do carro: ");
-        String ModelCar = sc.nextLine();
-        System.out.print("Retirada (dd/MM/yyyy hh:mm): ");
-        LocalDateTime start = LocalDateTime.parse(sc.nextLine(),fmt);
-        System.out.print("Retorno (dd/MM/yyyy hh:mm): ");
-        LocalDateTime finish = LocalDateTime.parse(sc.nextLine(),fmt);
-        CarRental cr = new CarRental(finish,start,new Vehicle(ModelCar));
-
-        System.out.print("Enter com o preço por hora: ");
-        double priceHour = sc.nextDouble();
-        sc.nextLine();
-        System.out.print("Entre com o preço por dia: ");
-        double pricePerDay = sc.nextDouble();
-
-        RentalService rentalService = new RentalService(pricePerDay,priceHour,new BrazilTaxService());
-
-        rentalService.processInvoice(cr);
-        System.out.println("FATURA:");
-        System.out.println("Pagamento básico: "+String.format("%.2f",cr.getInvoice().getBasicPayment()));
-        System.out.println("Imposto: "+String.format("%.2f",cr.getInvoice().getTax()));
-        System.out.println("Pagamento total: "+String.format("%.2f",cr.getInvoice().getTotalPayment()));
-        sc.close();
     }
-
 }
