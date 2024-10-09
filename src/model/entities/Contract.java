@@ -1,12 +1,13 @@
 package model.entities;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
 public class Contract {
     private Integer number;
-    private LocalDateTime dataCont;
+    private LocalDate dataCont;
     private Double valueFull;
 
 
@@ -16,7 +17,7 @@ public class Contract {
     public Contract() {
     }
 
-    public Contract(Integer number, LocalDateTime dataCont, Double valueFull) {
+    public Contract(Integer number, LocalDate dataCont, Double valueFull) {
         this.number = number;
         this.dataCont = dataCont;
         this.valueFull = valueFull;
@@ -33,12 +34,12 @@ public class Contract {
         this.number = number;
     }
 
-    public LocalDateTime getDataCont() {
+    public LocalDate getDataCont() {
 
         return dataCont;
     }
 
-    public void setDataCont(LocalDateTime dataCont) {
+    public void setDataCont(LocalDate dataCont) {
 
         this.dataCont = dataCont;
     }
