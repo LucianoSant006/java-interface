@@ -15,13 +15,14 @@ public class ContractService {
 
 
     public void processContract(Contract contract, int months) {
-        double basicQuota = contract.getValueFull() / months;
+
+            double basicQuota = contract.getValueFull() / months;
         for(int i = 1;i <= months;i++){
             LocalDate due = contract.getDataCont().plusMonths(i);
             //basicQuota = 200.00
-            double interest = basicQuota + onlinePaymentService.interest(basicQuota,i);
+            double interest = onlinePaymentService.interest(basicQuota,i);
             //2
-            double free = interest + onlinePaymentService.paymentFree(interest+basicQuota);
+            double free = onlinePaymentService.paymentFree(interest+basicQuota);
             //free 6.04
             double quotaFull =basicQuota + interest +free;
 

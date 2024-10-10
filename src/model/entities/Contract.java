@@ -6,13 +6,12 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Contract {
+
     private Integer number;
     private LocalDate dataCont;
     private Double valueFull;
 
-
     private List<Installment> installments = new ArrayList<>();
-
 
     public Contract() {
     }
@@ -25,27 +24,22 @@ public class Contract {
     }
 
     public Integer getNumber() {
-
         return number;
     }
 
     public void setNumber(Integer number) {
-
         this.number = number;
     }
 
     public LocalDate getDataCont() {
-
         return dataCont;
     }
 
     public void setDataCont(LocalDate dataCont) {
-
         this.dataCont = dataCont;
     }
 
     public Double getValueFull() {
-
         return valueFull;
     }
 
@@ -53,9 +47,8 @@ public class Contract {
         this.valueFull = valueFull;
     }
 
-
     public List<Installment> getInstallments() {
-
         return installments;
     }
+
 }

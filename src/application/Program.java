@@ -15,10 +15,13 @@ import java.util.Scanner;
 
 public class Program {
     public static void main(String[] Args){
+
         Locale.setDefault(Locale.US);
         Scanner sc = new Scanner(System.in);
+
         DateTimeFormatter sdf = DateTimeFormatter.ofPattern("dd/MM/yyyy");
-        System.out.println("Enter os dados do contrato:");
+
+        System.out.println("Enter contract data:");
         System.out.print("Number: ");
         int number = sc.nextInt();
         System.out.print("Date (dd/MM/yyyy): ");
@@ -28,16 +31,16 @@ public class Program {
 
         Contract obj = new Contract(number, datee, totalValue);
 
-        System.out.print("Entre com o numero de parcelas: ");
+        System.out.print("Enter the installment number: ");
         int n = sc.nextInt();
 
         ContractService service = new ContractService(new PaypalService());
         service.processContract(obj,n);
 
-        System.out.println("Parcelas:");
+        System.out.println("installment: ");
         for(Installment installment: obj.getInstallments()){
             System.out.println(installment);
         }
-
+        sc.close();
     }
 }
