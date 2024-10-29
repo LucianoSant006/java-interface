@@ -32,6 +32,26 @@ imposto e valor total do pagamento) e informar os dados na tela.
 #### Service Layer Design
 <img width="800px" heigth="800px" src="https://github.com/user-attachments/assets/c7d72086-3911-451b-957c-d06e80cfc0e9" alt="CarRental-service"/>
 
+## 📘 Exercício Contract
+###
+Uma empresa deseja automatizar o processamento de seus contratos. O processamento de
+um contrato consiste em gerar as parcelas a serem pagas para aquele contrato, com base no
+número de meses desejado.
+A empresa utiliza um serviço de pagamento online para realizar o pagamento das parcelas.
+Os serviços de pagamento online tipicamente cobram um juro mensal, bem como uma taxa
+por pagamento. Por enquanto, o serviço contratado pela empresa é o do Paypal, que aplica
+juros simples de 1% a cada parcela, mais uma taxa de pagamento de 2%.
+Fazer um programa para ler os dados de um contrato (número do contrato, data do contrato,
+e valor total do contrato). Em seguida, o programa deve ler o número de meses para
+parcelamento do contrato, e daí gerar os registros de parcelas a serem paga (data e valor),
+meses após o contrato e assim por diante.Mostrar os dados das parcelas na tela.
+
+### Uml
+
+#### Service Layer Design
+=
+
+
 
 
 
